@@ -1,18 +1,32 @@
-// import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
+  const [server, setServer] = useState(() => Math.floor(Math.random() * 10) + 1);
+
+  const serverNum = () => {
+    const newValue = Math.floor(Math.random() * 10) + 1;
+    setServer(newValue);
+  };
+
 
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center p-4">
-      <div className="border-4 border-yellow-500 p-8 rounded-lg bg-black/40 shadow-[0_0_20px_rgba(234,179,8,0.3)]">
-        <h1 className="text-yellow-500 font-mono text-5xl font-bold tracking-tighter uppercase italic">
-          Pip-Boy 3000
+    <div className="min-h-screen p-8 relative">
+      {/* Efeito visual de monitor antigo */}
+      <div className="scanlines"></div>
+
+      <header className="border-b-2 border-fallout mb-6 pb-2">
+        <h1 className="text-3xl font-bold tracking-tighter text-center">
+          ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM<br />copyright 2075-2077 robco industries <br /> -Server {server}-
+
         </h1>
-        <p className="text-yellow-400/80 font-mono mt-4 text-center">
-          S.P.E.C.I.A.L. System Initialized...
-        </p>
-      </div>
+      </header>
+
+      <main>
+        <p className="mb-4">Welcome, Overseer.</p>
+        {/* Aqui entra sua calculadora ou inventário */}
+        <p>{`>`}</p>
+      </main>
     </div>
   )
 }

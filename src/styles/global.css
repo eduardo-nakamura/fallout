@@ -1,1 +1,38 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+@theme {
+  --color-fallout: #18f417;
+  --color-terminal-bg: #050505;
+  --font-terminal: "Share Tech Mono", monospace;
+
+  @keyframes flicker {
+    0% { opacity: 0.9; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.9; }
+    15% { opacity: 0.97; }
+    25% { opacity: 0.95; }
+    30% { opacity: 1; }
+    100% { opacity: 0.98; }
+  }
+
+  --animate-flicker: flicker 0.9s infinite;
+}
+
+@layer base {
+  body {
+    background-color: #050505; 
+    color: #18f417;
+    margin: 0;
+    @apply font-terminal antialiased animate-flicker;
+  }
+}
+
+@utility scanlines {
+  @apply fixed inset-0 pointer-events-none z-50;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.15) 50%
+  );
+  background-size: 100% 4px;
+}
