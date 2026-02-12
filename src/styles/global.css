@@ -16,6 +16,12 @@
     100% { opacity: 0.98; }
   }
   --animate-flicker: flicker 0.9s infinite;
+
+  @keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  --animate-blink-cursor: blink-cursor 0.7s infinite step-end;
 }
 
 @layer base {
@@ -34,4 +40,6 @@
     rgba(0, 0, 0, 0.15) 50%
   );
   background-size: 100% 4px;
+
+  @apply animate-blink-cursor;
 }

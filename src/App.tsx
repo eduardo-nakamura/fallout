@@ -1,7 +1,10 @@
-import { useEffect, useState, lazy, Suspense } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './components/layout' // 1. Importe o Layout
 
-const Terminal = lazy(() => import('./pages/Terminal'))
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+const Options = lazy(() => import('./pages/Options'))
 
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen">
@@ -11,40 +14,32 @@ const LoadingSpinner = () => (
 
 function App() {
   const [server, setServer] = useState(() => Math.floor(Math.random() * 10) + 1);
-  const [prompt, setPrompt] = useState('_');
+  // const [prompt, setPrompt] = useState('_');
 
-  const serverNum = () => {
-    const newValue = Math.floor(Math.random() * 10) + 1;
-    setServer(newValue);
-  };
+  // const serverNum = () => {
+  //   const newValue = Math.floor(Math.random() * 10) + 1;
+  //   setServer(newValue);
+  // };
 
   return (
     <BrowserRouter>
-      {/* O Suspense precisa envolver as Rotas */}
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
-          <Route path="/" element={<Terminal />} />
-          {/* <Route path="/sobre" element={<About />} />
-          <Route path="/contato" element={<Contact />} /> */}
+          {/* 2. Defina a rota pai que usa o Layout */}
+          <Route path="/" element={<Layout server={server} />}>
+
+            {/* 3. As rotas filhas substituem o <Outlet /> no Layout */}
+            <Route index element={<Home />} />
+
+            <Route path="about" element={<About />} />
+            <Route path="options" element={<Options />} />
+
+          </Route>
         </Routes>
       </Suspense>
     </BrowserRouter>
-    // <div className="min-h-screen p-8 relative">
 
-    //   <div className="scanlines"></div>
 
-    //   <header className=" mb-6 pb-2">
-    //     <h1 className="text-3xl font-bold tracking-tighter text-center">
-    //       ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM<br />copyright 2075-2077 robco industries <br /> -Server {server}-
-    //     </h1>
-    //   </header>
-
-    //   <main>
-    //     <h2 className="border-b-2 pb-2 mb-4">Terminal Name</h2>
-
-    //     <p>{`> ${prompt}`}</p>
-    //   </main>
-    // </div>
   )
 }
 
