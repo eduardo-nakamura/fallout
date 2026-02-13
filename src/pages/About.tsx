@@ -14,13 +14,16 @@ export default class About extends Component {
     return (
       <div>
         <h2 className='text-2xl'>About</h2>
-        <TypewriterText
-          text="Welcome, Overseer. Your Vault-Tec systems are online."
-          delay={7} // 70ms entre cada letra
-          initialDelay={10} // Meio segundo antes de começar
-          onComplete={handleWelcomeComplete}
-          className="block mb-4" // Tailwind classes
-        />
+        <p>
+          <TypewriterText
+            text="Welcome, Overseer. Your Vault-Tec systems are online."
+            delay={7} // 70ms entre cada letra
+            initialDelay={10} // Meio segundo antes de começar
+            onComplete={handleWelcomeComplete}
+            className="block mb-4" // Tailwind classes
+          />
+
+        </p>
         <Link to="/">  <Button>Back</Button> </Link>
 
       </div>

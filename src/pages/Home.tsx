@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import {Button} from '../components/button'
 
 export default class Home extends Component {
   render() {
     return (
-      <div>
-        <Link to="/about"> <Button>About</Button> </Link>
-        <Link to="/options">  <Button>Options</Button> </Link>
+      <div className='flex flex-col gap-2'>
+        <Button to="/about">About</Button>
+        <Button to="/options">Options</Button>
+
 
        
       </div>

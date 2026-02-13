@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 interface TypewriterTextProps {
-    text: string;           // O texto completo a ser digitado
-    delay?: number;         // Atraso entre cada letra (em ms)
-    initialDelay?: number;  // Atraso inicial antes de começar a digitar
-    onComplete?: () => void; // Função a ser chamada quando o texto terminar
-    className?: string;     // Classes Tailwind adicionais
+  text: string;
+  delay?: number;
+  initialDelay?: number;
+  onComplete?: () => void;
+  className?: string;
+  soundEnabled?: boolean; // Opção para ligar/desligar o som
 }
 
 export function TypewriterText({
@@ -13,36 +14,61 @@ export function TypewriterText({
     delay = 50,
     initialDelay = 0,
     onComplete,
-    className
+    className,
+    soundEnabled = true
 }: TypewriterTextProps) {
     const [displayedText, setDisplayedText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    // 1. Estabilizamos o playKeySound com useCallback
+    const playKeySound = useCallback(() => {
+        if (!soundEnabled || !audioRef.current) return;
+
+        const soundClone = audioRef.current.cloneNode() as HTMLAudioElement;
+        soundClone.volume = 0.01;
+        soundClone.play().catch(() => { });
+        soundClone.onended = () => soundClone.remove();
+    }, [soundEnabled]);
+
+    // Inicializa o áudio uma única vez
+    useEffect(() => {
+        if (soundEnabled) {
+            audioRef.current = new Audio('/sounds/ui_hacking_charscroll.wav');
+        }
+    }, [soundEnabled]);
 
     useEffect(() => {
-        // Atraso inicial antes de começar a digitar
-        const initialTimer = setTimeout(() => {
-            if (currentIndex < text.length) {
-                const typeTimer = setTimeout(() => {
-                    setDisplayedText(text.substring(0, currentIndex + 1));
-                    setCurrentIndex(prevIndex => prevIndex + 1);
-                }, delay);
-                return () => clearTimeout(typeTimer); // Limpa o timer ao desmontar
-            } else {
-                // Quando o texto termina, chama a função onComplete
-                if (onComplete) {
-                    onComplete();
-                }
-            }
-        }, initialDelay);
+        // Lógica de Delay Inicial
+        if (currentIndex === 0) {
+            const startTimer = setTimeout(() => {
+                setCurrentIndex(1);
+            }, initialDelay);
+            return () => clearTimeout(startTimer);
+        }
 
-        return () => clearTimeout(initialTimer); // Limpa o timer inicial
-    }, [currentIndex, text, delay, initialDelay, onComplete]);
+        // Lógica de Digitação
+        if (currentIndex <= text.length) {
+            const typeTimer = setTimeout(() => {
+                setDisplayedText(text.substring(0, currentIndex));
+                playKeySound(); // Agora é uma dependência segura
+
+                if (currentIndex < text.length) {
+                    setCurrentIndex(prev => prev + 1);
+                } else if (onComplete) {
+                    onComplete(); // Agora é uma dependência segura
+                }
+            }, delay);
+
+            return () => clearTimeout(typeTimer);
+        }
+    // 2. Adicionamos as dependências que o ESLint exigiu
+    }, [currentIndex, text, delay, initialDelay, onComplete, playKeySound]);
 
     return (
-        <span className={`typewriter ${className}`}>
+        <span className={`font-terminal ${className}`}>
             {displayedText}
-            {/* Opcional: Adicionar um cursor piscante no final */}
-            {currentIndex < text.length && <span className="blinking-cursor">_</span>}
+            <span className="blinking-cursor">_</span>
         </span>
     );
 }
