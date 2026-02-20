@@ -5,10 +5,11 @@ import Layout from './components/layout' // 1. Importe o Layout
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const Options = lazy(() => import('./pages/Options'))
+const Terminal = lazy(() => import('./pages/Terminal'))
 
 const LoadingSpinner = () => (
   <div className="flex justify-center items-center h-screen">
-    <p className="text-blue-500 font-bold animate-pulse">Carregando...</p>
+    <p className="text-fallout font-bold animate-pulse">Carregando...</p>
   </div>
 )
 
@@ -33,6 +34,7 @@ function App() {
 
             <Route path="about" element={<About />} />
             <Route path="options" element={<Options />} />
+            <Route path="terminal" element={<Terminal />} />
 
           </Route>
         </Routes>

@@ -38,7 +38,7 @@ export function Button({
         }
     };
     // Base de estilos que todos os botões compartilham
-    const baseStyles = "uppercase font-terminal transition-all active:scale-95 disabled:opacity-50 cursor-pointer";
+    const baseStyles = "uppercase font-terminal transition-all  disabled:opacity-50 cursor-pointer";
 
     // Variações de cores (usando suas cores do @theme)
     const variants = {

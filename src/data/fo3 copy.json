@@ -1,0 +1,43 @@
+{
+    "entries": [
+         {
+            "title": "Afterword",
+            "terminal": "-",
+            "content": [
+                "MOIRA BROWN\nPASS: ***********\n\nDate: 09.10.2297\n\nWelcome, MOIRA. It is another lovely day for science!\n\nDAILY LOG:\n\nExperiment Reports:\nIrradiated Agriculture—Good response from mutfruit, strangely aggressive response to baseline sample. Purified water very helpful.\nDeathclaw Communication—No language that I can discern, unless \"Mutilating assistants\" counts. What would they have to say, anyway?\nJefferson Purifier - Guards still refuse to allow access to see how the Purifier works. They say it's to prevent sabotage, but I think they aren't entirely certain.\n\nPersonal Note:\nJust shipped out another crate of survival guides, and the caravans just can't seem to get enough of them. Sheriff Simms says they've really put Megaton on the map—pretty ironic, since I've had to redraw that map about a million times since the first edition came out 20 years ago. At least all the attention means there's no shortage of assistants, but I'm never getting another assistant like the Lone Wanderer who stumbled into my shop so long ago.\n\nJust about everyone in the Capital Wasteland has a story about the Lone Wanderer, even though precious few ever really knew him. But that doesn't stop them from telling crazy tall tales about how he saved their lives, or The American Dream|blew up a mountain, or ate a car or something. Heck, if you get Simms drunk, he'll tell you that his dad died because of the Wanderer, even though he The Power of the Atom|saved the town. People can't even agree on whether the Wanderer was a man or a woman, much less a saint or a monster. But they all agree on one thing: the Lone Wanderer changed the Capital Wasteland.\n\nOf course, that's why I'm working on the new book, compiling the best and most useful tales of the Lone Wanderer for the next generation. It's not easy sorting out all the conflicting stories, but that'll be half of the fun for the readers. More importantly, between all of those crazy stories of bravery, barbarity, and everything in-between, we can all find a reason to keep on fighting our war for survival.\n\nI guess some things never change, huh?\n"                                
+            ]
+        },
+        {
+            "title": "Tunnel Snakes",
+            "terminal": "Overseer's Terminal",
+            "content": [
+                "If Butch and his leather-clad delinquents accost Amata one more time, they'll have more to deal with than their acerbic teacher.",
+                "Their 'services' have come in handy upon occasion, I must admit, but they're starting to become unruly. If dogs become feral, they must be put down. I'll have to remind Butch of that upon our next meeting."
+            ]
+        },
+        {
+            "title": "Beatrice",
+            "terminal": "Overseer's Terminal",
+            "content": [
+                "Just what Vault 101 needs -- an absent-minded, sexually repressed sycophant. Beatrice has served Vault 101 admirably for years, but her mind is growing feeble. I'll have to speak with our good doctor about some kind of long-term pharmaceutical solution.",
+                "We may at least be able to keep her comfortable -- and quiet -- until she passes on."
+            ]
+        },
+        {
+            "title": "Jonas",
+            "terminal": "Overseer's Terminal",
+            "content": [
+                "I never should have assigned Jonas as James' assistant. He was always too idealistic for his own good. Now he spends every waking minute with the good doctor, who gleefully fills his ears with even more idealistic nonsense.",
+                "I've considered re-assigning him, but the truth is Jonas is a fine medic in his own right, and hiding him down in maintenance would be a terrible waste of resources."
+            ]
+        },
+        {
+            "title": "Amata",
+            "terminal": "Overseer's Terminal",
+            "content": [
+                "Every time I try to get Amata to open up, she just pushes me further and further away. Since she was a child, I've tried to instill in her those virtues that have made this Vault what it is today: loyalty, honesty, commitment, hard work.",
+                "She does try, and with a lot of guidance has grown into a fine young woman. That makes it all the sadder that she continues to alienate me. She looks at me and sees the Overseer, not the father that has cared for her alone -- alone! -- since she was an infant."
+            ]
+        }
+    ]
+}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import { Button } from '../components/button'
 import { TypewriterText } from '../components/TypewriterText';
 
@@ -14,7 +13,7 @@ export default class About extends Component {
     return (
       <div>
         <h2 className='text-2xl'>About</h2>
-        <p>
+        <p className='text-xl mt-2'>
           <TypewriterText
             text="Welcome, Overseer. Your Vault-Tec systems are online."
             delay={7} // 70ms entre cada letra
@@ -24,7 +23,7 @@ export default class About extends Component {
           />
 
         </p>
-        <Link to="/">  <Button>Back</Button> </Link>
+        <Button to="/">Back</Button>
 
       </div>
     )

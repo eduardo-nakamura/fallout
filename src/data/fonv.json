@@ -1,0 +1,50 @@
+{
+    "entries": [       
+        {
+            "title": "Entry 1",
+            "terminal": "Raul's terminal",
+            "content": [                
+                "As if I don't have enough pointless things to do here, Tabitha wants me to start keeping a log of all the repairs I do. So here's my first log entry. I fixed up several old terminals that were left over in the intact buildings here. I wonder what she's planning to use them for."
+            ]
+        },
+        {
+            "title": "Entry 2",
+            "terminal": "Raul's terminal",
+            "content": [                
+                "Apparently, the mutants raided a caravan today. One of their rifles jammed. Took about seven minutes to fix. I also performed minor maintenance on the broadcasting tower outside. It's tempting to think that I could have just pulled a switch there and taken this accursed station off the air. No doubt she would have killed me soon afterward, but it might have been worth it just to see the look on her face."
+            ]
+        },
+        {
+            "title": "Entry 3",
+            "terminal": "Raul's terminal",
+            "content": [                
+                "The mutant with the scar across his face, whom I've taken to calling Cuddles, stopped in today and asked me to fix his car. I told him that's outside my expertise and seriously thought he was going to kill me."
+            ]
+        },
+        {
+            "title": "Entry 4",
+            "terminal": "Raul's terminal",
+            "content": [                
+                "Tried to escape today. Tabitha had one of her men beat me senseless when they caught me. Now they lock me up in the next room whenever I'm not working on something.",
+                "Oh, and I fixed a toaster."
+            ]
+        },
+        {
+            "title": "Entry 5",
+            "terminal": "Raul's terminal",
+            "content": [                
+                "Cuddles came in about his car again. He even brought a container of gas and asked if that would help. I tried to tell him that gas was not the problem, but he got really angry and dragged me outside. Tabitha killed him herself before things got too ugly",
+                "At least I don't have to hear about his damn car anymore."
+            ]
+        },
+        {
+            "title": "Entry 6",
+            "terminal": "Raul's terminal",
+            "content": [
+                "",
+                "Tabitha came in today and said she's concerned about my safety. She's insisted that I change the lock on my door to require a password, using one of the other computers I fixed. I'm really starting to regret ever fixing those.",
+                "The password is 123456789. Like anyone who cares will ever read this."
+            ]
+        }
+    ]
+}
