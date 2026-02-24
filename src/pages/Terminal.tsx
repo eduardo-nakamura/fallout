@@ -125,14 +125,14 @@ export default function Terminal () {
       <>
         {/* 2. COLUNA DA ESQUERDA: LISTA DE TERMINAIS */}
         {/* Mobile: Esconde se houver um título selecionado | Desktop: Sempre visível */}
-        <section className={`flex flex-col gap-2 ${displayTitle ? 'hidden md:flex' : 'flex'}`}>
+        <section className={`flex flex-col gap-2 ${displayTitle ? 'hidden md:flex' : 'flex'} h-full overflow-hidden`}>
           <TerminalInput
             prefix='FILTER > '
             onCommand={(cmd) => console.log(cmd)}
             onChange={val => setSearchTerm(val)}
           />
           
-          <div className="overflow-y-auto max-h-[60vh] md:max-h-[70vh] flex flex-col gap-1 border-t border-fallout/10 pt-2">
+          <div className="flex flex-col flex-1 overflow-y-auto pr-2 custom-scrollbar">
             {filteredList.map((item, index) => (
               <Button
                 variant={displayTitle === item ? 'default' : 'ghost'}
@@ -150,7 +150,7 @@ export default function Terminal () {
 
         {/* 3. COLUNA DA DIREITA: CONTEÚDO */}
         
-        <section className={`flex flex-col ${!displayTitle ? 'hidden md:flex' : 'flex'}`}>
+        <section className={`flex flex-col ${!displayTitle ? 'hidden md:flex' : 'flex'} h-full overflow-hidden`}>
           
           
           {displayTitle && (

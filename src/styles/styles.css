@@ -5,3 +5,51 @@
 .blink-effect{
     animation: smooth-blink 1s infinite;
 }
+
+
+/* Custom Scrollbar - Fallout Edition */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    /* Um fundo bem escuro com um leve brilho verde */
+    background: rgba(0, 20, 0, 0.4);
+    border-left: 1px solid rgba(24, 244, 23, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #18f417;
+    /* Adiciona um efeito de glow no "handle" do scroll */
+    box-shadow: 0 0 8px rgba(24, 244, 23, 0.6);
+    border-radius: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #20ff1f;
+    box-shadow: 0 0 12px rgba(24, 244, 23, 0.8);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #18f417 rgba(0, 20, 0, 0.4);
+  }
+}
+
+/* Efeito de Scanlines fixo para dar profundidade ao scroll */
+.terminal-scroll-area {
+  position: relative;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 3px 100%;
+}
