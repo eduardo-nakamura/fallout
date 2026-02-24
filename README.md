@@ -53,7 +53,7 @@ Um dos maiores desafios foi converter o **Wikitext** bruto da Fandom em texto pu
 Para garantir que a experiência não fosse prejudicada pela latência da API, foi desenvolvido um sistema de cache que armazena os logs limpos no navegador do usuário, reduzindo requisições repetidas.
 
 ## 📟 Licença
-Distribuído sob a licença MIT. Veja LICENSE para mais informações.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 </details>
 <!-- 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -1,5 +1,5 @@
 import { useState, lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout' // 1. Importe o Layout
 
 const Home = lazy(() => import('./pages/Home'))
@@ -23,7 +23,7 @@ function App() {
   // };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           {/* 2. Defina a rota pai que usa o Layout */}
@@ -39,7 +39,7 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
 
 
   )

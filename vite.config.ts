@@ -25,6 +25,8 @@ export default defineConfig({
     })
   ],
 
+  base: '/fallout/',
+  
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
