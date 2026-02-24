@@ -14,7 +14,7 @@ const LoadingSpinner = () => (
 )
 
 function App() {
-  const [server, setServer] = useState(() => Math.floor(Math.random() * 10) + 1);
+  const [server] = useState(() => Math.floor(Math.random() * 10) + 1);
   // const [prompt, setPrompt] = useState('_');
 
   // const serverNum = () => {

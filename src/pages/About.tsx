@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { Button } from '../components/button'
 import { TypewriterText } from '../components/TypewriterText';
 
