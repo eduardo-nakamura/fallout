@@ -7,7 +7,7 @@
   --font-terminal: "Share Tech Mono", monospace;
 
   @keyframes flicker {
-    0% { opacity: 0.1; }
+    0% { opacity: 0.5; }
     5% { opacity: 0.95; }
     10% { opacity: 0.9; }
     15% { opacity: 0.97; }
@@ -31,6 +31,30 @@
     margin: 0;
     @apply font-terminal antialiased animate-flicker;
   }
+  ::-webkit-scrollbar {
+    width: 8px;  
+    height: 8px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(24, 244, 23, 0.05); 
+    border-left: 1px solid rgba(24, 244, 23, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #18f417; 
+    border-radius: 0px;   
+    box-shadow: 0 0 5px rgba(24, 244, 23, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #12b811; 
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #18f417 rgba(24, 244, 23, 0.05);
+  }
 }
 
 @utility scanlines {
@@ -42,4 +66,12 @@
   background-size: 100% 4px;
 
   @apply animate-blink-cursor;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

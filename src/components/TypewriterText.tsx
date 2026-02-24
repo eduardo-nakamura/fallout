@@ -28,10 +28,10 @@ export function TypewriterText({
     const playKeySound = useCallback(() => {
         if (!soundEnabled || !audioRef.current || isFinished) return;
 
-        const soundClone = audioRef.current.cloneNode() as HTMLAudioElement;
-        soundClone.volume = 0.05;
-        soundClone.play().catch(() => { });
-        soundClone.onended = () => soundClone.remove();
+        const sound = audioRef.current;
+        sound.currentTime = 0;
+        sound.volume = 0.05;
+        sound.play().catch(() => { });
     }, [soundEnabled, isFinished]);
 
     useEffect(() => {
@@ -50,9 +50,10 @@ export function TypewriterText({
         }
     };
 
+    
     useEffect(() => {
         // Se já terminou (pelo clique), não faz nada
- 
+
         if (isFinished) return;
 
         if (currentIndex === 0) {
@@ -78,10 +79,15 @@ export function TypewriterText({
             return () => clearTimeout(typeTimer);
         }
     }, [currentIndex, text, delay, initialDelay, onComplete, playKeySound, isFinished]);
+    
+    const isMounted = useRef(true);
+    useEffect(() => {
+        return () => { isMounted.current = false; };
+    }, []);
 
     return (
-        <span 
-            className={`font-terminal cursor-pointer select-none ${className}`} 
+        <span
+            className={`font-terminal cursor-pointer select-none ${className}`}
             onClick={skipAnimation}
             title="Click to skip"
         >
