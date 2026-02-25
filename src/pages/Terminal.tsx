@@ -128,6 +128,7 @@ export default function Terminal () {
         <section className={`flex flex-col gap-2 ${displayTitle ? 'hidden md:flex' : 'flex'} h-full overflow-hidden`}>
           <TerminalInput
             prefix='FILTER > '
+            className='border p-2'
             onCommand={(cmd) => console.log(cmd)}
             onChange={val => setSearchTerm(val)}
           />
@@ -145,7 +146,7 @@ export default function Terminal () {
             ))}
           </div>
 
-          <Button onClick={handleBack} className='mt-4'>[ MENU ]</Button>
+          <Button onClick={handleBack} className='mt-4'>[ List of Games ]</Button>
         </section>
 
         {/* 3. COLUNA DA DIREITA: CONTEÚDO */}
@@ -174,7 +175,7 @@ export default function Terminal () {
                   {/* <TypewriterText key={displayTitle} text={displayTitle} /> */}
                   {displayTitle}
                 </h3>
-                <div className='text-lg md:text-xl whitespace-pre-wrap leading-relaxed overflow-y-auto max-h-[70vh]'>
+                <div className='text-lg md:text-xl whitespace-pre-wrap leading-relaxed'>
                   <TypewriterText key={content} text={content} delay={15} />
                 </div>
               </article>

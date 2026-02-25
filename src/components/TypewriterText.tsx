@@ -30,13 +30,13 @@ export function TypewriterText({
 
         const sound = audioRef.current;
         sound.currentTime = 0;
-        sound.volume = 0.05;
+        sound.volume = 0.005;
         sound.play().catch(() => { });
     }, [soundEnabled, isFinished]);
 
     useEffect(() => {
         if (soundEnabled) {
-            audioRef.current = new Audio('/sounds/ui_hacking_charscroll.wav');
+            audioRef.current = new Audio('./sounds/ui_hacking_charscroll.wav');
         }
     }, [soundEnabled]);
 

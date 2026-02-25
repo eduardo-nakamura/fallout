@@ -19,15 +19,15 @@ export function Button({
 
     const playSound = (src: string) => {
         const audio = new Audio(src);
-        audio.volume = 0.15; // Volume sutil para não ser irritante
+        audio.volume = 0.05; // Volume sutil para não ser irritante
         audio.play().catch(() => { }); // Catch vazio para evitar erros de permissão do navegador
     };
     const handleMouseEnter = () => {
-        playSound('/sounds/ui_menu_focus.wav'); // Certifique-se de ter este arquivo em public/sounds/
+        playSound('./sounds/ui_menu_focus.wav'); // Certifique-se de ter este arquivo em public/sounds/
     };
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        playSound('/sounds/ui_hacking_charenter_01.wav'); // Certifique-se de ter este arquivo em public/sounds/
+        playSound('./sounds/ui_hacking_charenter_01.wav'); // Certifique-se de ter este arquivo em public/sounds/
 
         // Executa a função onClick original se ela existir
         if (onClick) onClick(e);
