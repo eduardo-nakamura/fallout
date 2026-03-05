@@ -3,13 +3,44 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ "main" ]
+
 permissions:
   contents: read
   pages: write
   id-token: write
 
 jobs:
-  build_site:
+  # JOB 1: TESTE (O Porteiro)
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Cypress run 🧪
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev
+          wait-on: 'http://localhost:5173/fallout/'
+          browser: chrome
+      
+      # ADICIONE AQUI: Logo após o Cypress e ANTES do próximo Job
+      - name: Upload Cypress Artifacts 📸
+        if: failure() 
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots-and-videos
+          path: |
+            cypress/screenshots
+            cypress/videos
+          retention-days: 7
+
+  # JOB 2: DEPLOY (O que publica)
+  deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
