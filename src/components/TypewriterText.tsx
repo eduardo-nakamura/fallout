@@ -36,7 +36,7 @@ export function TypewriterText({
 
     useEffect(() => {
         if (soundEnabled) {
-            audioRef.current = new Audio('./sounds/ui_hacking_charscrolll.wav');
+            audioRef.current = new Audio('./sounds/ui_hacking_charscroll.wav');
         }
     }, [soundEnabled]);
 
