@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 @theme {
-  --color-fallout: #18f417;
-  --color-terminal-bg: #050505;
+  /* Vincula o tema do Tailwind às variáveis dinâmicas */
+  --color-fallout: var(--fallout-main);
+  --color-terminal-bg: var(--fallout-bg);
   --font-terminal: "Share Tech Mono", monospace;
 
   @keyframes flicker {
@@ -24,36 +25,56 @@
   --animate-blink-cursor: blink-cursor 0.7s infinite step-end;
 }
 
+/* Definição das variáveis de tema */
+:root, [data-theme='green'] {
+  --fallout-main: #18f417;
+  --fallout-bg: #050505;
+}
+
+[data-theme='white'] {
+  --fallout-main: #e0f9f8;
+  --fallout-bg: #050505;
+}
+
+[data-theme='amber'] {
+  --fallout-main: #f9ae56;
+  --fallout-bg: #2a1e10;
+}
+
+[data-theme='blue'] {
+  --fallout-main: #38c5eb;
+  --fallout-bg: #101b21;
+}
+
 @layer base {
   body {
-    background-color: #050505; 
-    color: #18f417;
+    background-color: var(--color-terminal-bg); 
+    color: var(--color-fallout);
     margin: 0;
     @apply font-terminal antialiased animate-flicker;
   }
+
+  /* Scrollbar dinâmica que acompanha a cor do tema */
   ::-webkit-scrollbar {
     width: 8px;  
     height: 8px; 
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(24, 244, 23, 0.05); 
-    border-left: 1px solid rgba(24, 244, 23, 0.1);
+    background: color-mix(in srgb, var(--color-fallout) 5%, transparent);
+    border-left: 1px solid color-mix(in srgb, var(--color-fallout) 10%, transparent);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #18f417; 
+    background: var(--color-fallout); 
     border-radius: 0px;   
-    box-shadow: 0 0 5px rgba(24, 244, 23, 0.5);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #12b811; 
+    box-shadow: 0 0 5px color-mix(in srgb, var(--color-fallout) 50%, transparent);
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #18f417 rgba(24, 244, 23, 0.05);
+    /* Usa color-mix para manter a transparência baseada na cor do tema atual */
+    scrollbar-color: var(--color-fallout) color-mix(in srgb, var(--color-fallout) 5%, transparent);
   }
 }
 
@@ -64,16 +85,5 @@
     rgba(0, 0, 0, 0.15) 50%
   );
   background-size: 100% 4px;
-
   @apply animate-blink-cursor;
 }
-
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-

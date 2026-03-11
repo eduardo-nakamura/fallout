@@ -36,17 +36,7 @@ export default function Terminal () {
     setDisplayTitle(entry)
     setContent('')
     setLoading(true)
-    // // Se o conteúdo for uma lista de sub-objetos (como em Security Dossiers)
-    // if (Array.isArray(entry.content) && typeof entry.content[0] === 'object') {
-    //   setCurrentView(entry.content as TerminalEntry[]);
-    //   setDisplayText(null); // Limpa o texto anterior
-    //   setDisplayTitle('')
-    // }
-
-    // else if (Array.isArray(entry.content)) {
-    //   setDisplayTitle(entry.title)
-    //   setDisplayText(entry.content.join('\n\n'));
-    // }
+   window.scrollTo(0, 0);
   }
 
   const handleBack = () => {
@@ -107,7 +97,7 @@ export default function Terminal () {
   }, [selectedTerminal])
 
   return (
-  <main className='grid grid-cols-1 md:grid-cols-2 gap-8 p-4 max-w-7xl mx-auto'>
+  <main className='grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto'>
     
     {/* 1. SELEÇÃO DE JOGO (Overlay ou Full Width) */}
     {!isSelected && (
@@ -125,7 +115,7 @@ export default function Terminal () {
       <>
         {/* 2. COLUNA DA ESQUERDA: LISTA DE TERMINAIS */}
         {/* Mobile: Esconde se houver um título selecionado | Desktop: Sempre visível */}
-        <section className={`flex flex-col gap-2 ${displayTitle ? 'hidden md:flex' : 'flex'} h-full overflow-hidden`}>
+        <section className={`flex flex-col ${displayTitle ? 'hidden md:flex' : 'flex'} overflow-y-scroll h-[70vh]`}>
           <TerminalInput
             prefix='FILTER > '
             className='border p-2'
@@ -151,7 +141,7 @@ export default function Terminal () {
 
         {/* 3. COLUNA DA DIREITA: CONTEÚDO */}
         
-        <section className={`flex flex-col ${!displayTitle ? 'hidden md:flex' : 'flex'} h-full overflow-hidden`}>
+        <section className={`flex flex-col ${!displayTitle ? 'hidden md:flex' : 'flex'} overflow-y-scroll h-[70vh]`}>
           
           
           {displayTitle && (

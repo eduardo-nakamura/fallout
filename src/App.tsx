@@ -1,6 +1,7 @@
 import { useState, lazy, Suspense } from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout' // 1. Importe o Layout
+import ReignOfGrelok from './pages/ReignOfGrelok'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -35,6 +36,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="options" element={<Options />} />
             <Route path="terminal" element={<Terminal />} />
+            <Route path="reign" element={<ReignOfGrelok />} />
 
           </Route>
         </Routes>
