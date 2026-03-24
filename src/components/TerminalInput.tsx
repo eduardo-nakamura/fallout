@@ -50,7 +50,7 @@ export function TerminalInput({
         {/* Renderização visual do texto + cursor simulado */}
         <div className="font-terminal break-all flex items-center border-fallout">
           {inputValue}
-          <span className="blink-effect bg-green-500 w-2 h-5 ml-1 inline-block" />
+          <span className="blink-effect bg-fallout-500 w-2 h-5 ml-1 inline-block" />
         </div>
       </div>
     </form>

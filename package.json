@@ -12,6 +12,7 @@
     "test:run": "cypress run"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/postcss": "^4.1.18",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

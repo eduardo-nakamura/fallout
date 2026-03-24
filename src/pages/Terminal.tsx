@@ -123,7 +123,7 @@ export default function Terminal () {
             onChange={val => setSearchTerm(val)}
           />
           
-          <div className="flex flex-col flex-1 overflow-y-auto pr-2 custom-scrollbar">
+          <div className="flex flex-col flex-1  pr-2 custom-scrollbar">
             {filteredList.map((item, index) => (
               <Button
                 variant={displayTitle === item ? 'default' : 'ghost'}

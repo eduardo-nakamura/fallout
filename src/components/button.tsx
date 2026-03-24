@@ -23,11 +23,13 @@ export function Button({
         audio.play().catch(() => { }); // Catch vazio para evitar erros de permissão do navegador
     };
     const handleMouseEnter = () => {
-        playSound('./sounds/ui_menu_focus.wav'); // Certifique-se de ter este arquivo em public/sounds/
+        const focus = `${import.meta.env.BASE_URL}sounds/ui_menu_focus.wav`;
+        playSound(focus); // Certifique-se de ter este arquivo em public/sounds/
     };
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        playSound('./sounds/ui_hacking_charenter_01.wav'); // Certifique-se de ter este arquivo em public/sounds/
+        const hacking = `${import.meta.env.BASE_URL}sounds/ui_hacking_charenter_01.wav`;
+        playSound(hacking); // Certifique-se de ter este arquivo em public/sounds/
 
         // Executa a função onClick original se ela existir
         if (onClick) onClick(e);
