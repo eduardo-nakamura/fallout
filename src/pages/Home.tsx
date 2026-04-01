@@ -6,7 +6,7 @@ export default class Home extends Component {
     return (
       <div className='flex flex-col gap-2'>
         <Button to="/terminal">Terminal</Button>
-        {/* <Button to="/reign">Reign of Grelok</Button> */}
+        <Button to="/reign">Reign of Grelok</Button>
         <Button to="/about">About</Button>
         <Button to="/options">Options</Button>
 
