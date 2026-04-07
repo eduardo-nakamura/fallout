@@ -114,9 +114,11 @@ export interface Dictionary {
       noWest: string
       noOne: string
       unknown: string
+      noPath: string
       langChangePrompt: string
       langChangeRepeat: string
       langChangeCancelled: string
+      reset: string
     }
   }
 }
