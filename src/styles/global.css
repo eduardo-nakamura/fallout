@@ -2,9 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 @theme {
-  /* Vincula o tema do Tailwind às variáveis dinâmicas */
+  /* No Tailwind v4, vinculamos as cores diretamente às variáveis */
+  /* O uso de var() aqui permite que o Tailwind injete opacidade automaticamente */
   --color-fallout: var(--fallout-main);
   --color-terminal-bg: var(--fallout-bg);
+  
   --font-terminal: "Share Tech Mono", monospace;
 
   @keyframes flicker {
@@ -25,9 +27,9 @@
   --animate-blink-cursor: blink-cursor 0.7s infinite step-end;
 }
 
-/* Definição das variáveis de tema */
+/* Definição das variáveis de tema em HEX (O v4 prefere HEX/RGB para calcular opacidade) */
 :root, [data-theme='green'] {
-  --fallout-main: #18f417;
+  --fallout-main: #18f417; 
   --fallout-bg: #050505;
 }
 
@@ -48,33 +50,24 @@
 
 @layer base {
   body {
-    background-color: var(--color-terminal-bg); 
-    color: var(--color-fallout);
+    background-color: var(--fallout-bg); 
+    color: var(--fallout-main);
     margin: 0;
     @apply font-terminal antialiased animate-flicker;
   }
 
-  /* Scrollbar dinâmica que acompanha a cor do tema */
+  /* Scrollbar dinâmica */
   ::-webkit-scrollbar {
-    width: 8px;  
-    height: 8px; 
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: color-mix(in srgb, var(--color-fallout) 5%, transparent);
-    border-left: 1px solid color-mix(in srgb, var(--color-fallout) 10%, transparent);
+    background: color-mix(in srgb, var(--fallout-main) 5%, transparent);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-fallout); 
-    border-radius: 0px;   
-    box-shadow: 0 0 5px color-mix(in srgb, var(--color-fallout) 50%, transparent);
-  }
-
-  * {
-    scrollbar-width: thin;
-    /* Usa color-mix para manter a transparência baseada na cor do tema atual */
-    scrollbar-color: var(--color-fallout) color-mix(in srgb, var(--color-fallout) 5%, transparent);
+    background: var(--fallout-main);
+    box-shadow: 0 0 5px color-mix(in srgb, var(--fallout-main) 50%, transparent);
   }
 }
 
@@ -82,8 +75,7 @@
   @apply fixed inset-0 pointer-events-none z-50;
   background: linear-gradient(
     rgba(18, 16, 16, 0) 50%, 
-    rgba(0, 0, 0, 0.15) 50%
+    rgba(0, 0, 0, 0.1) 50%
   );
   background-size: 100% 4px;
-  @apply animate-blink-cursor;
 }

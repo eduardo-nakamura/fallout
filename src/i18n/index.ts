@@ -5,7 +5,10 @@ export type Language = typeof SUPPORTED_LANGUAGES[number]
 
 export interface Dictionary {
   loading: string
-
+  layout: {
+    welcome: string
+    protagonistNames: string[]
+  }
   header: {
     copyright: string
     server: string
@@ -27,6 +30,23 @@ export interface Dictionary {
     title: string
     welcome: string
     back: string
+    version: string
+    description: string
+    sections: {
+      dev: {
+        label: string
+        content: string
+      }
+      tech: {
+        label: string
+        content: string
+      }
+      legal: {
+        label: string
+        content: string
+      }
+    }
+    footerNote: string
   }
 
   options: {
@@ -36,6 +56,7 @@ export interface Dictionary {
   }
 
   terminal: {
+    title: string
     selectDatabase: string
     filter: string
     decrypting: string
@@ -48,11 +69,12 @@ export interface Dictionary {
 
   // — Reign of Grelok —
   reign: {
+    title: string
     termlink: string
     active: string
     placeholder: string
     intro: string
-    
+
     // Nomes curtos para o "Você está em: X"
     locationNames: {
       plains: string

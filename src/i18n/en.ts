@@ -3,7 +3,16 @@ import type { Dictionary } from './index'
 // NOVO INÍCIO: dicionário inglês
 const en: Dictionary = {
   loading: 'Loading...',
-
+  layout: {
+    welcome: 'Welcome',
+    protagonistNames: [
+      'Vault Dweller',
+      'Chosen One',
+      'Lone Wanderer',
+      'Courier',
+      'Sole Survivor'
+    ]
+  },
   header: {
     copyright: 'copyright 2075-2077 robco industries',
     server: 'Server',
@@ -24,7 +33,28 @@ const en: Dictionary = {
   about: {
     title: 'About',
     welcome: 'Welcome, Overseer. Your Vault-Tec systems are online.',
-    back: 'Back'
+    back: 'Back',
+    version: 'SYSTEM VERSION: 2.6.4',
+    description:
+      'A terminal emulator for the Fallout franchise developed with React, Tailwind CSS, and TypeScript. This system allows access to terminal logs directly from RobCo Industries (via the Fandom API).',
+    sections: {
+      dev: {
+        label: '> DEVELOPER',
+        content:
+          'Designed by Eduardo Nakamura as a study of retro-futuristic interfaces using React and Tailwind CSS v4.'
+      },
+      tech: {
+        label: '> TECH SPECS',
+        content:
+          'Engine: React + Vite | Styling: Tailwind CSS | Typography: Share Tech Mono.'
+      },
+      legal: {
+        label: '> LEGAL NOTICE',
+        content:
+          'This is a non-profit fan project. Fallout and related elements are trademarks of Bethesda Softworks.'
+      }
+    },
+    footerNote: 'GOOD LUCK IN THE WASTELAND.'
   },
 
   options: {
@@ -34,6 +64,7 @@ const en: Dictionary = {
   },
 
   terminal: {
+    title: 'Terminal',
     selectDatabase: 'SYSTEM READY. SELECT DATABASE:',
     filter: 'FILTER > ',
     decrypting: 'DECRYPTING DATA...',
@@ -45,27 +76,35 @@ const en: Dictionary = {
   },
 
   reign: {
-    termlink: "ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM",
-    active: "ACTIVE USER: GRELOK",
-    placeholder: "ENTER COMMAND...",
+    title: 'Reign of Grelok',
+    termlink: 'ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM',
+    active: 'ACTIVE USER: GRELOK',
+    placeholder: 'ENTER COMMAND...',
     intro: `REIGN OF GRELOK v1.3\nA RobCo Termlink Production\n\nYou wake on a vast plain. The sun is hidden by heavy clouds.\nTo the NORTH is the MOUNTAIN, to the SOUTH the VILLAGE, to the WEST the SWAMP, and to the EAST the CHAPEL.\n\nWhat do you do?`,
-    
+
     locationNames: {
-      plains: "PLAINS",
-      mountain: "MOUNTAINS",
-      swamp: "SWAMP",
-      village: "VILLAGE",
-      chapel: "CHAPEL"
+      plains: 'PLAINS',
+      mountain: 'MOUNTAINS',
+      swamp: 'SWAMP',
+      village: 'VILLAGE',
+      chapel: 'CHAPEL'
     },
 
     locations: {
-      plains: "You are standing in a wide plain. Foothills stretch to the north, where clouds gather around an ominous peak. A dirt path winds from a lonely chapel to the east, through the plains where you're standing, and south into a bustling town. Wispy mists gather over marshland in the west, where a thin tower stands alone in the bog.\n\nYou examine your surroundings...",
-      mountain: "You are on the craggy, windblasted face of a mountain. Stormclouds coil above the summit, pelting you and the sparse vegetation with torrential downpour. Far below, beyond the foothills, a wide plain stretches across the southern horizon.\n\nGrelok is here, spewing heresies.\n\nA glint between the rocks catches your eye. You see a RAW GEMSTONE",
-      mountain_clear: "You are on the craggy, windblasted face of a mountain. Stormclouds coil above the summit, pelting you and the sparse vegetation with torrential downpour. Far below, beyond the foothills, a wide plain stretches across the southern horizon.\n\nGrelok is here, spewing heresies.",
-      swamp: "You are standing on a narrow stone path in a dark marsh. Greasy bubbles float to the top of the bog-waters on either side and pop lazily, spattering your legs with muck and slime. A short, stone tower squats here. No door is visible, and the stones are smooth and polished. A balcony juts out midway up the tower's face. The heady smells of incense mix with the nauseating stench of the swamp. The stone path unfurls eastward, towards a broad plain beyond the marshes.\n\nA wizard is here, gesticulating wildly from his balcony.",
-      village: "You're standing in the dusty market square of a quiet town. Many of the shops and homes lie abandoned, and the citzens that can be seen speak in hushed voices, casting furtive glances at the darkened skyline in the distant north. The ringing of an anvil breaks the silence regularly, where a mustachioed blacksmith bends over his work in a nearby tent.\n\nThe blacksmith is here, working.\n\nA priest is here, drinking.",
-      chapel: "You stand at the end of a dirt path, facing a small chapel. The stucco walls are faded, many roof tiles are missing. The great oaken doors are locked. The congregation is nowhere to be found. A small cemetery of crooked headstones lies in the shadow of the cracked steeple. The dirt path winds westward through a great, featureless plain.\n\nA zombie totters aimlessly nearby.\n\nThere is an open grave nearby.",
-      chapel_clear: "You stand at the end of a dirt path, facing a small chapel. The stucco walls are faded, many roof tiles are missing. The great oaken doors are locked. The congregation is nowhere to be found. A small cemetery of crooked headstones lies in the shadow of the cracked steeple. The dirt path winds westward through a great, featureless plain.\n\nA zombie totters aimlessly nearby.\n\nThere is an open grave nearby."
+      plains:
+        "You are standing in a wide plain. Foothills stretch to the north, where clouds gather around an ominous peak. A dirt path winds from a lonely chapel to the east, through the plains where you're standing, and south into a bustling town. Wispy mists gather over marshland in the west, where a thin tower stands alone in the bog.\n\nYou examine your surroundings...",
+      mountain:
+        'You are on the craggy, windblasted face of a mountain. Stormclouds coil above the summit, pelting you and the sparse vegetation with torrential downpour. Far below, beyond the foothills, a wide plain stretches across the southern horizon.\n\nGrelok is here, spewing heresies.\n\nA glint between the rocks catches your eye. You see a RAW GEMSTONE',
+      mountain_clear:
+        'You are on the craggy, windblasted face of a mountain. Stormclouds coil above the summit, pelting you and the sparse vegetation with torrential downpour. Far below, beyond the foothills, a wide plain stretches across the southern horizon.\n\nGrelok is here, spewing heresies.',
+      swamp:
+        "You are standing on a narrow stone path in a dark marsh. Greasy bubbles float to the top of the bog-waters on either side and pop lazily, spattering your legs with muck and slime. A short, stone tower squats here. No door is visible, and the stones are smooth and polished. A balcony juts out midway up the tower's face. The heady smells of incense mix with the nauseating stench of the swamp. The stone path unfurls eastward, towards a broad plain beyond the marshes.\n\nA wizard is here, gesticulating wildly from his balcony.",
+      village:
+        "You're standing in the dusty market square of a quiet town. Many of the shops and homes lie abandoned, and the citzens that can be seen speak in hushed voices, casting furtive glances at the darkened skyline in the distant north. The ringing of an anvil breaks the silence regularly, where a mustachioed blacksmith bends over his work in a nearby tent.\n\nThe blacksmith is here, working.\n\nA priest is here, drinking.",
+      chapel:
+        'You stand at the end of a dirt path, facing a small chapel. The stucco walls are faded, many roof tiles are missing. The great oaken doors are locked. The congregation is nowhere to be found. A small cemetery of crooked headstones lies in the shadow of the cracked steeple. The dirt path winds westward through a great, featureless plain.\n\nA zombie totters aimlessly nearby.\n\nThere is an open grave nearby.',
+      chapel_clear:
+        'You stand at the end of a dirt path, facing a small chapel. The stucco walls are faded, many roof tiles are missing. The great oaken doors are locked. The congregation is nowhere to be found. A small cemetery of crooked headstones lies in the shadow of the cracked steeple. The dirt path winds westward through a great, featureless plain.\n\nA zombie totters aimlessly nearby.\n\nThere is an open grave nearby.'
     },
 
     dialogues: {
@@ -82,65 +121,72 @@ const en: Dictionary = {
         `The wizard is shooing you away, his sleeves flopping about.\n\n"Go! Find the gemstone and return, so I can play my part!"`
       ],
       mountain: ["GRELOK ROARS: 'YOU ARE NO MATCH FOR MY POWER!'"],
-      chapel: ["The zombie gnashes its teeth. It will not let you pass."]
+      chapel: ['The zombie gnashes its teeth. It will not let you pass.']
     },
 
     inventory: {
-      title: "INVENTORY",
-      empty: "  (empty)",
-      initialItems: ["rusty_sword", "drinking_flask"],
+      title: 'INVENTORY',
+      empty: '  (empty)',
+      initialItems: ['rusty_sword', 'drinking_flask'],
       itemNames: {
-        rusty_sword: "RUSTY SWORD",
-        drinking_flask: "DRINKING FLASK",
-        drinking_flask_plus: "DRINKING FLASK+",
-        zombie_head: "ZOMBIE HEAD",
-        refined_gemstone: "REFINED GEMSTONE",
-        magical_shard: "MAGICAL SHARD",
-        magic_sword: "MAGIC SWORD",
-        brass_key: "BRASS KEY",
-        raw_gemstone: "RAW GEMSTONE"
+        rusty_sword: 'RUSTY SWORD',
+        drinking_flask: 'DRINKING FLASK',
+        drinking_flask_plus: 'DRINKING FLASK+',
+        zombie_head: 'ZOMBIE HEAD',
+        refined_gemstone: 'REFINED GEMSTONE',
+        magical_shard: 'MAGICAL SHARD',
+        magic_sword: 'MAGIC SWORD',
+        brass_key: 'BRASS KEY',
+        raw_gemstone: 'RAW GEMSTONE'
       }
     },
 
     itemDescriptions: {
-      rusty_sword: "Your weapon. Rusty, but trusty.",
-      drinking_flask: "A very small flask to carry water.",
-      drinking_flask_plus: "The flask now glows with a holy aura and purified water.",
-      raw_gemstone: "This gemstone may be valuable...",
-      refined_gemstone: "A brilliant, faceted gemstone",
-      magical_shard: "The gem shard pulses with magical light...",
-      brass_key: "Key given to you by the priest",
-      zombie_head: "The smell may make you unpopular...",
-      magic_sword: "An enchanted weapon to defeat Grelok"
+      rusty_sword: 'Your weapon. Rusty, but trusty.',
+      drinking_flask: 'A very small flask to carry water.',
+      drinking_flask_plus:
+        'The flask now glows with a holy aura and purified water.',
+      raw_gemstone: 'This gemstone may be valuable...',
+      refined_gemstone: 'A brilliant, faceted gemstone',
+      magical_shard: 'The gem shard pulses with magical light...',
+      brass_key: 'Key given to you by the priest',
+      zombie_head: 'The smell may make you unpopular...',
+      magic_sword: 'An enchanted weapon to defeat Grelok'
     },
 
     events: {
-      grelokAlive: "Your puny weapons are useless on Grelok.",
+      grelokAlive: 'Your puny weapons are useless on Grelok.',
       grelokDefeated: `When you draw your sword, Grelok lowers his great horned head and bellows laughter in your face. You grit your teeth and swing a mighty two-handed blow, the magical blade ringing clearly, even amid the tumult of throaty cackling.\n\nYou swing the sword so fiercely, it escapes your grip and hurtles into the open maw of the monstrosity, lost from sight in the arid darkness of Grelok's throat. You step back as Grelok jerks his mouth shut and stands upright. He is still for a moment, then starts clawing at his neck. Muffled, a ringing can be heard as if from a great distance.\n\nSuddenly, Grelok's chest bursts in a fount of viscous, green blood. The Ringing can be heard clearly now, and as thick lifeblood oozes around the protruding tip of the magic sword, the stormclouds swirling the peak are already clearing. Grelok is defeated!\n\nTHE END\n(Thanks for playing!)`,
-      getGemstone: "You collect the RAW GEMSTONE from the cold mountain rocks.",
+      getGemstone: 'You collect the RAW GEMSTONE from the cold mountain rocks.',
       priestBrassKey: `The priest drunkenly curses the undead who have defiled his church. You present him with the decapitated zombie head from your bag.\n\n"Praise you!", he hiccups. "Perhaps Grelok's influence isn't so strong!". With that, he turns his decanter over on the head and tosses into a fireplace, where it bursts into purple flame and burns up almost instantly.\n\n"I must gather the faithful." He presses a brass key into your palm, "Please, help yourself to what little may be of use at my chapel."`,
       blacksmithMagicSword: `The blacksmith regards you gruffly and is about to dismiss you when you produce the polished gemstone from your bag. He sets his hammer aside and twirls his moustache.\n\n"A right fine stone, that is." He says, admiring the faceted stone, "What would you be needin', then?"\n\nFollowing your careful instructions, the smithy re-forges your rusty sword with the magical shard at the center of the blade.`,
-      wizardRefine: "The Wizard transmutes your Raw Gemstone into a REFINED GEMSTONE and a MAGICAL SHARD!",
-      wizardLater: "The Wizard ignores you. He seems interested only in raw gemstones.",
-      zombieKill: "Your blow knocks the zombie into a grave.",
-      tombEmpty: "There is a deep, empty grave in the cemetery. Several bloated rats floating in a foot of filthy water at the bottom. Don't fall in!",
-      tombFull: "There is a deep, empty grave in the cemetery. Several bloated rats floating in a foot of filthy water at the bottom. Don't fall in!\n\nA grotesque zombie head is stuck on a root near the top of the grave. You bag the horrific trophy as proof of your deed.",
+      wizardRefine:
+        'The Wizard transmutes your Raw Gemstone into a REFINED GEMSTONE and a MAGICAL SHARD!',
+      wizardLater:
+        'The Wizard ignores you. He seems interested only in raw gemstones.',
+      zombieKill: 'Your blow knocks the zombie into a grave.',
+      tombEmpty:
+        "There is a deep, empty grave in the cemetery. Several bloated rats floating in a foot of filthy water at the bottom. Don't fall in!",
+      tombFull:
+        "There is a deep, empty grave in the cemetery. Several bloated rats floating in a foot of filthy water at the bottom. Don't fall in!\n\nA grotesque zombie head is stuck on a root near the top of the grave. You bag the horrific trophy as proof of your deed.",
       flaskUpgrade: `Dust motes hang lazily in the shafts of colored light stretching across the chapel from peaked windows. The pews, pulpit, and everything else are covered in a fine mist. There is a very deep stone cistern near the entrance. It is full to the brim with blessed water.\n\nThere is more than enough water here to fill your tiny flask.`,
-      help: "Commands: N, S, E, W, LOOK, TALK [TARGET], GET [ITEM], USE [ITEM] ON [TARGET], INVENTORY, RESET."
+      help: 'Commands: N, S, E, W, LOOK, TALK [TARGET], GET [ITEM], USE [ITEM] ON [TARGET], INVENTORY, RESET.'
     },
 
     commands: {
-      currentLocation: "YOU ARE IN",
-      noNorth: "The rocks are too slippery to climb here.",
-      noSouth: "A barrier of thorns prevents you from going further south.",
-      noEast: "The fog prevents you from seeing the path east.",
-      noWest: "The swamp mud is too deep in this direction.",
-      noOne: "There is no one here to talk to.",
+      currentLocation: 'YOU ARE IN',
+      noNorth: 'The rocks are too slippery to climb here.',
+      noSouth: 'A barrier of thorns prevents you from going further south.',
+      noEast: 'The fog prevents you from seeing the path east.',
+      noWest: 'The swamp mud is too deep in this direction.',
+      noOne: 'There is no one here to talk to.',
       unknown: "Invalid command. Type 'HELP' to see your options.",
-      langChangePrompt: "> WARNING: Changing language will restart the game. Continue? (Y/N)",
-      langChangeRepeat: "Please answer with Y or N.",
-      langChangeCancelled: "Language change cancelled.",
-      reset: '........................................\nResetting.\n........................................',
+      langChangePrompt:
+        '> WARNING: Changing language will restart the game. Continue? (Y/N)',
+      langChangeRepeat: 'Please answer with Y or N.',
+      langChangeCancelled: 'Language change cancelled.',
+      reset:
+        '........................................\nResetting.\n........................................',
       noPath: 'There is no path in this direction.'
     }
   }

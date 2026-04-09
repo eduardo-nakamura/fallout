@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Button } from '../components/button'
 
 export default function ThemeSelector () {
   const themes = [

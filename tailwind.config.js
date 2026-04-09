@@ -1,19 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {        
-        'fallout': {
-          DEFAULT: '#18f417',
-          faint: 'rgba(24, 244, 23, 0.3)',
-          dark: '#0a5d0a',
-        },
+      colors: {
+        // O <alpha-value> é o segredo para o /40 e /80 funcionarem
+        fallout: "rgb(var(--fallout-main) / <alpha-value>)",
+        "fallout-bg": "rgb(var(--fallout-bg) / <alpha-value>)",
       },
-      fontFamily: {        
+      fontFamily: {
         terminal: ['"Share Tech Mono"', 'monospace'],
       },
     },

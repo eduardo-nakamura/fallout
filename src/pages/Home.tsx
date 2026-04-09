@@ -1,18 +1,16 @@
-import { Component } from 'react'
-import {Button} from '../components/button'
 
-export default class Home extends Component {
-  render() {
-    return (
-      <div className='flex flex-col gap-2'>
-        <Button to="/terminal">Terminal</Button>
-        <Button to="/reign">Reign of Grelok</Button>
-        <Button to="/about">About</Button>
-        <Button to="/options">Options</Button>
+import { Button } from '../components/button'
+import { useLanguage } from '../contexts/useLanguage'
 
+export default function Home () {
+  const { t } = useLanguage()
 
-       
-      </div>
-    )
-  }
+  return (
+    <div className='flex flex-col gap-2'>
+      <Button to='/terminal'>{t.terminal.title}</Button>
+      <Button to='/reign'>{t.reign.title}</Button>
+      <Button to='/about'>{t.about.title}</Button>
+      <Button to='/options'>{t.options.title}</Button>
+    </div>
+  )
 }

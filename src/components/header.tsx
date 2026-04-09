@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useLanguage } from '../contexts/LanguageContext.types'
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n'
 import ThemeSelector from './ThemeSelector'
 import { GearIcon } from '@phosphor-icons/react'
