@@ -176,8 +176,7 @@ export function processCommand (
   // MONTANHA
   if (s.location === 'mountain') {
     if (
-      !s.inventory.includes('raw_gemstone') &&
-      ['PEGAR GEMA', 'GET GEM', 'COLETAR'].some(v => input.includes(v))
+      !s.inventory.includes('raw_gemstone') && ['PEGAR GEMA', 'GET GEM', 'COLETAR'].some(v => input.includes(v))
     ) {
       s.inventory.push('raw_gemstone')
       return { response: e.getGemstone, newState: s, newDialogueIndex: d }
@@ -292,7 +291,7 @@ export function processCommand (
   // --- 5. OLHAR AMBIENTE (FALLBACK) ---
   if (input === 'OLHAR' || input === 'LOOK') {
     let description = r.locations[s.location]
-    if (s.location === 'mountain' && s.inventory.includes('raw_gemstone'))
+    if (s.location === 'mountain' && (s.inventory.includes('raw_gemstone') || s.inventory.includes('refined_gemstone')))
       description = r.locations.mountain_clear || r.locations.mountain
     if (s.location === 'chapel' && d['zombie_dead'])
       description = r.locations.chapel_clear || r.locations.chapel
