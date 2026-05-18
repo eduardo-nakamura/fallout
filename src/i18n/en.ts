@@ -92,19 +92,19 @@ const en: Dictionary = {
 
     locations: {
       plains:
-        "You are standing in a wide plain. Foothills stretch to the north, where clouds gather around an ominous peak. A dirt path winds from a lonely chapel to the east, through the plains where you're standing, and south into a bustling town. Wispy mists gather over marshland in the west, where a thin tower stands alone in the bog.\n\nYou examine your surroundings...",
+        "You are standing in a wide PLAINS. Foothills stretch to the NORTH, where clouds gather around an ominous peak. A dirt path winds from a lonely chapel to the EAST, through the plains where you're standing, and SOUTH into a bustling town. Wispy mists gather over marshland in the WEST, where a thin tower stands alone in the bog.\n\nYou examine your surroundings...",
       mountain:
-        'You are on the craggy, windblasted face of a mountain. Stormclouds coil above the summit, pelting you and the sparse vegetation with torrential downpour. Far below, beyond the foothills, a wide plain stretches across the southern horizon.\n\nGrelok is here, spewing heresies.\n\nA glint between the rocks catches your eye. You see a RAW GEMSTONE',
+        'You are on the craggy, windblasted face of a MOUNTAIN. Stormclouds coil above the summit, pelting you and the sparse vegetation with torrential downpour. Far below, beyond the foothills, a wide plain stretches across the SOUTH horizon.\n\nGrelok is here, spewing heresies.\n\nA glint between the rocks catches your eye. You see a RAW GEMSTONE',
       mountain_clear:
-        'You are on the craggy, windblasted face of a mountain. Stormclouds coil above the summit, pelting you and the sparse vegetation with torrential downpour. Far below, beyond the foothills, a wide plain stretches across the southern horizon.\n\nGrelok is here, spewing heresies.',
+        'You are on the craggy, windblasted face of a MOUNTAIN. Stormclouds coil above the summit, pelting you and the sparse vegetation with torrential downpour. Far below, beyond the foothills, a wide plain stretches across the SOUTH horizon.\n\nGrelok is here, spewing heresies.',
       swamp:
-        "You are standing on a narrow stone path in a dark marsh. Greasy bubbles float to the top of the bog-waters on either side and pop lazily, spattering your legs with muck and slime. A short, stone tower squats here. No door is visible, and the stones are smooth and polished. A balcony juts out midway up the tower's face. The heady smells of incense mix with the nauseating stench of the swamp. The stone path unfurls eastward, towards a broad plain beyond the marshes.\n\nA wizard is here, gesticulating wildly from his balcony.",
+        "You are standing on a narrow stone path in a dark SWAMP. Greasy bubbles float to the top of the bog-waters on either side and pop lazily, spattering your legs with muck and slime. A short, stone tower squats here. No door is visible, and the stones are smooth and polished. A balcony juts out midway up the tower's face. The heady smells of incense mix with the nauseating stench of the swamp. The stone path unfurls EASTWARD, towards a broad plain beyond the marshes.\n\nA WIZARD is here, gesticulating wildly from his balcony.",
       village:
-        "You're standing in the dusty market square of a quiet town. Many of the shops and homes lie abandoned, and the citzens that can be seen speak in hushed voices, casting furtive glances at the darkened skyline in the distant north. The ringing of an anvil breaks the silence regularly, where a mustachioed blacksmith bends over his work in a nearby tent.\n\nThe blacksmith is here, working.\n\nA priest is here, drinking.",
+        "You're standing in the dusty market square of a quiet VILLAGE. Many of the shops and homes lie abandoned, and the citzens that can be seen speak in hushed voices, casting furtive glances at the darkened skyline in the distant NORTH. The ringing of an anvil breaks the silence regularly, where a mustachioed blacksmith bends over his work in a nearby tent.\n\nThe BLACKSMITH is here, working.\n\nA PRIEST is here, drinking.",
       chapel:
-        'You stand at the end of a dirt path, facing a small chapel. The stucco walls are faded, many roof tiles are missing. The great oaken doors are locked. The congregation is nowhere to be found. A small cemetery of crooked headstones lies in the shadow of the cracked steeple. The dirt path winds westward through a great, featureless plain.\n\nA zombie totters aimlessly nearby.\n\nThere is an open grave nearby.',
+        'You stand at the end of a dirt path, facing a small CHAPEL. The stucco walls are faded, many roof tiles are missing. The great oaken doors are locked. The congregation is nowhere to be found. A small cemetery of crooked headstones lies in the shadow of the cracked steeple. The dirt path winds WESTWARD through a great, featureless plain.\n\nA ZOMBIE totters aimlessly nearby.\n\nThere is an open GRAVE nearby.',
       chapel_clear:
-        'You stand at the end of a dirt path, facing a small chapel. The stucco walls are faded, many roof tiles are missing. The great oaken doors are locked. The congregation is nowhere to be found. A small cemetery of crooked headstones lies in the shadow of the cracked steeple. The dirt path winds westward through a great, featureless plain.\n\nA zombie totters aimlessly nearby.\n\nThere is an open grave nearby.'
+        'You stand at the end of a dirt path, facing a small CHAPEL. The stucco walls are faded, many roof tiles are missing. The great oaken doors are locked. The congregation is nowhere to be found. A small cemetery of crooked headstones lies in the shadow of the cracked steeple. The dirt path winds WESTWARD through a great, featureless plain.\n\nThere is an open GRAVE nearby.'
     },
 
     dialogues: {
@@ -170,7 +170,14 @@ const en: Dictionary = {
       tombFull:
         "There is a deep, empty grave in the cemetery. Several bloated rats floating in a foot of filthy water at the bottom. Don't fall in!\n\nA grotesque zombie head is stuck on a root near the top of the grave. You bag the horrific trophy as proof of your deed.",
       flaskUpgrade: `Dust motes hang lazily in the shafts of colored light stretching across the chapel from peaked windows. The pews, pulpit, and everything else are covered in a fine mist. There is a very deep stone cistern near the entrance. It is full to the brim with blessed water.\n\nThere is more than enough water here to fill your tiny flask.`,
-      help: 'Commands: N, S, E, W, LOOK, TALK [TARGET], GET [ITEM], USE [ITEM] ON [TARGET], INVENTORY, RESET.'
+      help: 'Commands: N, S, E, W, LOOK, TALK [TARGET], GET [ITEM], USE [ITEM] ON [TARGET], INVENTORY, RESET.',
+      lookGem: 'A RAW GEMSTONE on the floor. You can pick it up.',
+      lookGrelok: 'You see a monstrosity atop the mountain with a great horned head. He spews heresies and bellows laughter in the face of his enemies',
+      lookBlacksmith: 'A huge, bald, and mustachioed man working tirelessly at his anvil inside a smoky tent in the town square',
+      lookPriest: 'A cleric in a constant state of drunkenness, carrying a thick, leatherbound volume tethered to his neck as he laments the abandonment of his chapel',
+      lookWizard: 'An eccentric little man with a pointy hat gesticulating frantically from his tower balcony, eager for the prophecy to be fulfilled',
+      lookZombie: `A grotesque and horrific undead creature tottering aimlessly through the chapel's cemetery. Behind him you see a TOMB`,
+      lookZombieDead:'The creature is dead. Behind him you see a TOMB'
     },
 
     commands: {

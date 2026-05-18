@@ -126,6 +126,13 @@ export interface Dictionary {
       tombFull: string
       flaskUpgrade: string
       help: string
+      lookGem: string
+      lookGrelok: string
+      lookBlacksmith: string
+      lookPriest: string
+      lookWizard: string
+      lookZombie: string
+      lookZombieDead: string
     }
 
     commands: {
@@ -142,5 +149,6 @@ export interface Dictionary {
       langChangeCancelled: string
       reset: string
     }
+
   }
 }

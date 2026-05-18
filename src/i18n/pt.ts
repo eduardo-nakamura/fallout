@@ -92,19 +92,19 @@ const pt: Dictionary = {
 
     locations: {
       plains:
-        'Você está em uma vasta planície. Colinas se estendem ao norte, onde nuvens se acumulam em torno de um pico sinistro. Um caminho de terra serpenteia de uma capela solitária a leste, passa pelas planícies onde você está e segue ao sul em direção a uma vila movimentada. Uma névoas tênue paira sobre o pântano a oeste, onde uma torre esguia ergue-se solitária no lamaçal.\n\nVocê examina seus arredores...',
+        'Você está em uma vasta PLANÍCIE. Colinas se estendem ao NORTE, onde nuvens se acumulam em torno de um pico sinistro. Um caminho de terra serpenteia de uma capela solitária a LESTE, passa pelas planícies onde você está e segue ao SUL em direção a uma vila movimentada. Uma névoas tênue paira sobre o pântano a OESTE, onde uma torre esguia ergue-se solitária no lamaçal.\n\nVocê examina seus arredores...',
       mountain:
-        'Você está na encosta rochosa e varrida pelo vento de uma montanha. Nuvens de tempestade se enrolam sobre o cume, castigando você e a vegetação esparsa com chuvas torrenciais. Bem abaixo, além das colinas, uma vasta planície se estende no horizonte sul.\n\nGrelok está aqui, proferindo heresias.\n\nUm brilho entre as rochas chama sua atenção. Você ve uma GEMA BRUTA',
+        'Você está na encosta rochosa e varrida pelo vento de uma MONTANHA. Nuvens de tempestade se enrolam sobre o cume, castigando você e a vegetação esparsa com chuvas torrenciais. Bem abaixo, além das colinas, uma vasta planície se estende no horizonte SUL.\n\nGrelok está aqui, proferindo heresias.\n\nUm brilho entre as rochas chama sua atenção. Você ve uma GEMA BRUTA',
       mountain_clear:
-        'Você está na encosta rochosa e varrida pelo vento de uma montanha. Nuvens de tempestade se enrolam sobre o cume, castigando você e a vegetação esparsa com chuvas torrenciais. Bem abaixo, além das colinas, uma vasta planície se estende no horizonte sul.\n\nGrelok está aqui, proferindo heresias.',
+        'Você está na encosta rochosa e varrida pelo vento de uma MONTANHA. Nuvens de tempestade se enrolam sobre o cume, castigando você e a vegetação esparsa com chuvas torrenciais. Bem abaixo, além das colinas, uma vasta planície se estende no horizonte SUL.\n\nGrelok está aqui, proferindo heresias.',
       swamp:
-        'Você está em um caminho de pedra estreito em um pântano escuro. Bolhas viscosas flutuam até a superfície da água do brejo de ambos os lados e estouram preguiçosamente, respingando lama e lodo em suas pernas. Uma pequena torre de pedra se ergue ali. Nenhuma porta é visível, e as pedras são lisas e polidas. Uma varanda se projeta a meio caminho da torre. O aroma intenso do incenso se mistura com o fedor nauseante do pântano. O caminho de pedra se estende para o leste, em direção a uma vasta planície além do brejo.\n\nUm mago está ali, gesticulando freneticamente de sua varanda.',
+        'Você está em um caminho de pedra estreito em um Pântano escuro. Bolhas viscosas flutuam até a superfície da água do brejo de ambos os lados e estouram preguiçosamente, respingando lama e lodo em suas pernas. Uma pequena torre de pedra se ergue ali. Nenhuma porta é visível, e as pedras são lisas e polidas. Uma varanda se projeta a meio caminho da torre. O aroma intenso do incenso se mistura com o fedor nauseante do pântano. O caminho de pedra se estende para o LESTE, em direção a uma vasta planície além do brejo.\n\nUm MAGO está ali, gesticulando freneticamente de sua varanda.',
       village:
-        'Você está parado na praça empoeirada de uma vila silenciosa. Muitas das lojas e casas estão abandonadas, e os poucos moradores que se vêem falam em sussurros, lançando olhares para o horizonte escuro ao norte. O som de uma bigorna quebra o silêncio de vez em quando, enquanto um ferreiro de bigode se debruça sobre seus produtos em uma tenda próxima.\n\nO ferreiro está trabalhando.\n\nO padre está bebendo.',
+        'Você está parado na praça empoeirada de uma Vila silenciosa. Muitas das lojas e casas estão abandonadas, e os poucos moradores que se vêem falam em sussurros, lançando olhares para o horizonte escuro ao norte. O som de uma bigorna quebra o silêncio de vez em quando, enquanto um ferreiro de bigode se debruça sobre seus produtos em uma tenda próxima.\n\nO FERREIRO está trabalhando.\n\nO PADRE está bebendo.',
       chapel:
-        'Você está no final de uma trilha de terra, de frente para uma pequena capela. As paredes de estuque estão desbotadas, muitas telhas faltam. As grandes portas de carvalho estão trancadas. A congregação não está em lugar nenhum. Um pequeno cemitério de lápides tortas fica à sombra da torre rachada. A trilha de terra serpenteia para oeste através de uma grande planície sem características marcantes.\n\nUm zumbi cambaleia sem rumo por perto.\n\nHá uma sepultura aberta nas proximidades.',
+        'Você está no final de uma trilha de terra, de frente para uma pequena Capela. As paredes de estuque estão desbotadas, muitas telhas faltam. As grandes portas de carvalho estão trancadas. A congregação não está em lugar nenhum. Um pequeno cemitério de lápides tortas fica à sombra da torre rachada. A trilha de terra serpenteia para OESTE através de uma grande planície sem características marcantes.\n\nUm ZUMBI cambaleia sem rumo por perto.\n\nHá uma SEPULTURA aberta nas proximidades.',
       chapel_clear:
-        'Você está no final de uma trilha de terra, de frente para uma pequena capela. As paredes de estuque estão desbotadas, muitas telhas faltam. As grandes portas de carvalho estão trancadas. A congregação não está em lugar nenhum. Um pequeno cemitério de lápides tortas fica à sombra da torre rachada. A trilha de terra serpenteia para oeste através de uma grande planície sem características marcantes.\n\nHá uma sepultura aberta nas proximidades.'
+        'Você está no final de uma trilha de terra, de frente para uma pequena Capela. As paredes de estuque estão desbotadas, muitas telhas faltam. As grandes portas de carvalho estão trancadas. A congregação não está em lugar nenhum. Um pequeno cemitério de lápides tortas fica à sombra da torre rachada. A trilha de terra serpenteia para oeste através de uma grande planície sem características marcantes.\n\nHá uma SEPULTURA aberta nas proximidades.'
     },
 
     dialogues: {
@@ -169,7 +169,14 @@ const pt: Dictionary = {
       tombFull:
         'Há uma cova funda e vazia no cemitério. Vários ratos inchados e o cadáver de um zumbi flutuam em trinta centímetros de uma água imunda no fundo. Cuidado!\n\nUma cabeça grotesca de zumbi está presa em uma raiz perto da borda da cova. Você pega o troféu horripilante como prova do seu feito.',
       flaskUpgrade: `A poeira paira preguiçosamente nos feixes de luz colorida que se estendem pela capela, vindos das janelas pontiagudas. Os bancos, o púlpito e tudo o mais estão cobertos por uma fina névoa. Há uma cisterna de pedra muito profunda perto da entrada. Ela está cheia até a borda com água benta.\n\nHá água mais do que suficiente aqui para encher seu pequeno frasco.`,
-      help: 'Comandos: N, S, L, O, OLHAR, FALAR [ALVO], PEGAR [ITEM], USAR [ITEM] EM [ALVO], INVENTÁRIO, RESET.'
+      help: 'Comandos: N, S, L, O, OLHAR, FALAR [ALVO], PEGAR [ITEM], USAR [ITEM] EM [ALVO], INVENTÁRIO, RESET.',
+      lookGem: 'Uma gema bruta no chão. Você pode pegá-la.',
+      lookGrelok: 'Você vê uma monstruosidade no topo da montanha com uma grande cabeça chifrada. Ele profere heresias e gargalha diante de seus inimigos',
+      lookBlacksmith: 'Um homem enorme, calvo e bigodudo que trabalha incansavelmente em sua bigorna dentro de uma tenda esfumaçada na praça da cidade',
+      lookPriest: 'Um clérigo em estado constante de embriaguez, carregando um grosso volume de couro preso ao pescoço por uma tira enquanto lamenta o abandono de sua capela',
+      lookWizard: 'Um homenzinho excêntrico de chapéu pontudo que gesticula freneticamente de sua varanda na torre, ansioso para que a profecia se cumpra',
+      lookZombie: 'Uma criatura morta-viva grotesca e horripilante que cambaleia sem rumo pelo cemitério da capela. Atrás dele você vê uma sepultura.',
+      lookZombieDead:'A criatura está morta. Atrás dele você vê uma sepultura.'
     },
 
     commands: {

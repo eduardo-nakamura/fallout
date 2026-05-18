@@ -123,7 +123,30 @@ export function processCommand (
   }
 
   // --- 3. AÇÕES ESPECÍFICAS DE LOCAL (PRIORIDADE SOBRE ITENS) ---
-
+  if (s.location === 'plains') {
+    //
+    if (
+      [
+        'PLANÍCIE',
+        'NORTE',
+        'LESTE',
+        'SUL',
+        'OESTE',
+        'PLAINS',
+        'PLAIN',
+        'NORTH',
+        'EAST',
+        'SOUTH',
+        'WEST'
+      ].some(v => input.includes(v))
+    ) {
+      return {
+        response: r.locations.mountain,
+        newState: s,
+        newDialogueIndex: d
+      }
+    }
+  }
   // CAPELA
   if (s.location === 'chapel') {
     // Saquear Túmulo (Se o input contém palavras de túmulo)
@@ -141,7 +164,7 @@ export function processCommand (
           newState: s,
           newDialogueIndex: d
         }
-      if (!s.inventory.includes('zombie_head')) {
+      if (!s.inventory.includes('zombie_head') && !s.inventory.includes('brass_key')) {
         s.inventory.push('zombie_head')
         return { response: e.tombFull, newState: s, newDialogueIndex: d }
       }
@@ -162,7 +185,21 @@ export function processCommand (
         newDialogueIndex: d
       }
     }
-
+    if (
+      [
+        'OLHAR ZUMBI',
+        'EXAMINAR ZUMBI',
+        'LOOK ZOMBIE',
+        'EXAMINE ZOMBIE',
+        'VER ZUMBI'
+      ].some(v => input.includes(v))
+    ) {
+      if (d['zombie_dead']) {
+        return { response: e.lookZombieDead, newState: s, newDialogueIndex: d }
+      } else {
+        return { response: e.lookZombie, newState: s, newDialogueIndex: d }
+      }
+    }
     // Ataque ao Zumbi
     if (
       ['ATACAR', 'MATAR', 'KILL', 'ATTACK'].some(v => input.includes(v)) &&
@@ -176,11 +213,27 @@ export function processCommand (
   // MONTANHA
   if (s.location === 'mountain') {
     if (
-      !s.inventory.includes('raw_gemstone') && ['PEGAR GEMA', 'GET GEM', 'COLETAR'].some(v => input.includes(v))
+      !s.inventory.includes('raw_gemstone') &&
+      ['PEGAR GEMA', 'GET GEM', 'COLETAR'].some(v => input.includes(v))
     ) {
       s.inventory.push('raw_gemstone')
       return { response: e.getGemstone, newState: s, newDialogueIndex: d }
     }
+
+    if (
+      !s.inventory.includes('raw_gemstone') &&
+      !s.inventory.includes('refined_gemstone') &&
+      ['OLHAR GEMA', 'EXAMINAR GEMA', 'LOOK GEM', 'LOOK RAW GEM'].some(v =>
+        input.includes(v)
+      )
+    ) {
+      return {
+        response: e.lookGem,
+        newState: s,
+        newDialogueIndex: d
+      }
+    }
+
     if (
       ['ATACAR', 'KILL', 'GRELOK', 'USAR ESPADA'].some(v => input.includes(v))
     ) {
@@ -192,49 +245,121 @@ export function processCommand (
   }
 
   // VILA (Conversas)
-  if (
-    s.location === 'village' &&
-    (input.includes('FALAR') || input.includes('TALK'))
-  ) {
-    if (input.includes('PADRE') || input.includes('PRIEST')) {
-      if (s.inventory.includes('zombie_head')) {
-        s.inventory = s.inventory.filter(i => i !== 'zombie_head')
-        s.inventory.push('brass_key')
-        return { response: e.priestBrassKey, newState: s, newDialogueIndex: d }
-      }
-      return {
-        response: r.dialogues.village[1],
-        newState: s,
-        newDialogueIndex: d
-      }
-    }
-    if (input.includes('FERREIRO') || input.includes('BLACKSMITH')) {
-      if (
-        s.inventory.includes('refined_gemstone') &&
-        s.inventory.includes('magical_shard')
-      ) {
-        s.inventory = s.inventory.filter(
-          i => i !== 'refined_gemstone' && i !== 'magical_shard'
-        )
-        s.inventory.push('magic_sword')
+  // VILA (Conversas e Observação)
+  if (s.location === 'village') {
+    // --- 1. COMANDOS DE OBSERVAÇÃO (LOOK/OLHAR) ---
+    if (input.includes('OLHAR') || input.includes('LOOK')) {
+      if (input.includes('FERREIRO') || input.includes('BLACKSMITH')) {
         return {
-          response: e.blacksmithMagicSword,
+          response: e.lookBlacksmith,
           newState: s,
           newDialogueIndex: d
         }
       }
+
+      if (input.includes('PADRE') || input.includes('PRIEST')) {
+        return {
+          response: e.lookPriest,
+          newState: s,
+          newDialogueIndex: d
+        }
+      }
+    }
+
+    // --- 2. LÓGICA DE CONVERSA (TALK/FALAR) ---
+    if (input.includes('FALAR') || input.includes('TALK')) {
+      // Interação com o PADRE
+      if (input.includes('PADRE') || input.includes('PRIEST')) {
+        if (s.inventory.includes('zombie_head')) {
+          s.inventory = s.inventory.filter(i => i !== 'zombie_head')
+          s.inventory.push('brass_key')
+          return {
+            response: e.priestBrassKey,
+            newState: s,
+            newDialogueIndex: d
+          }
+        }
+        return {
+          response: r.dialogues.village[1],
+          newState: s,
+          newDialogueIndex: d
+        }
+      }
+
+      // Interação com o FERREIRO
+      if (input.includes('FERREIRO') || input.includes('BLACKSMITH')) {
+        if (
+          s.inventory.includes('refined_gemstone') &&
+          s.inventory.includes('magical_shard')
+        ) {
+          s.inventory = s.inventory.filter(
+            i => i !== 'refined_gemstone' && i !== 'magical_shard'
+          )
+          s.inventory.push('magic_sword')
+          return {
+            response: e.blacksmithMagicSword,
+            newState: s,
+            newDialogueIndex: d
+          }
+        }
+        return {
+          response: r.dialogues.village[0],
+          newState: s,
+          newDialogueIndex: d
+        }
+      }
+
+      // Resposta padrão caso fale com "alguém" não especificado na vila
       return {
-        response: r.dialogues.village[0],
+        response: r.dialogues.village[2],
         newState: s,
         newDialogueIndex: d
       }
     }
-    return {
-      response: r.dialogues.village[2],
-      newState: s,
-      newDialogueIndex: d
-    }
   }
+  // if (
+  //   s.location === 'village' &&
+  //   (input.includes('FALAR') || input.includes('TALK'))
+  // ) {
+  //   if (input.includes('PADRE') || input.includes('PRIEST')) {
+  //     if (s.inventory.includes('zombie_head')) {
+  //       s.inventory = s.inventory.filter(i => i !== 'zombie_head')
+  //       s.inventory.push('brass_key')
+  //       return { response: e.priestBrassKey, newState: s, newDialogueIndex: d }
+  //     }
+  //     return {
+  //       response: r.dialogues.village[1],
+  //       newState: s,
+  //       newDialogueIndex: d
+  //     }
+  //   }
+  //   if (input.includes('FERREIRO') || input.includes('BLACKSMITH')) {
+  //     if (
+  //       s.inventory.includes('refined_gemstone') &&
+  //       s.inventory.includes('magical_shard')
+  //     ) {
+  //       s.inventory = s.inventory.filter(
+  //         i => i !== 'refined_gemstone' && i !== 'magical_shard'
+  //       )
+  //       s.inventory.push('magic_sword')
+  //       return {
+  //         response: e.blacksmithMagicSword,
+  //         newState: s,
+  //         newDialogueIndex: d
+  //       }
+  //     }
+  //     return {
+  //       response: r.dialogues.village[0],
+  //       newState: s,
+  //       newDialogueIndex: d
+  //     }
+  //   }
+  //   return {
+  //     response: r.dialogues.village[2],
+  //     newState: s,
+  //     newDialogueIndex: d
+  //   }
+  // }
 
   // PÂNTANO (Mago)
   if (
@@ -291,7 +416,11 @@ export function processCommand (
   // --- 5. OLHAR AMBIENTE (FALLBACK) ---
   if (input === 'OLHAR' || input === 'LOOK') {
     let description = r.locations[s.location]
-    if (s.location === 'mountain' && (s.inventory.includes('raw_gemstone') || s.inventory.includes('refined_gemstone')))
+    if (
+      s.location === 'mountain' &&
+      (s.inventory.includes('raw_gemstone') ||
+        s.inventory.includes('refined_gemstone'))
+    )
       description = r.locations.mountain_clear || r.locations.mountain
     if (s.location === 'chapel' && d['zombie_dead'])
       description = r.locations.chapel_clear || r.locations.chapel
